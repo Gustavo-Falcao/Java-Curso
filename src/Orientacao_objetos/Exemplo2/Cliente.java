@@ -5,8 +5,7 @@ public class Cliente {
     int age;
     String email;
 
-    void MostraDados(int pos) {
-        System.out.println("\nCliente " + pos);
+    void MostraDados() {
         System.out.println("Nome: " + name);
         System.out.println("Idade: " + age);
         System.out.println("Email: " + email);

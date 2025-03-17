@@ -1,26 +1,39 @@
 package Orientacao_objetos.Exemplo2;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
-        Cliente[] clientes = new Cliente[3];
+        ArrayList<Cliente> clientes = new ArrayList<>();
 
-        for(int i = 0; i < clientes.length; i++) {
-            clientes[i] = new Cliente();
+        System.out.print("Informe quantos clientes quer cadastrar: ");
+        int quantClientes = Integer.parseInt(ler.nextLine());
+
+        for(int i = 0; i < quantClientes; i++) {
+            Cliente usuario = new Cliente();
+
             System.out.println("\nCliente " + (i+1));
             System.out.print("Nome: ");
-            clientes[i].name = ler.nextLine();
+            usuario.name = ler.nextLine();
             System.out.print("Idade: ");
-            clientes[i].age = Integer.parseInt(ler.nextLine());
+            usuario.age = Integer.parseInt(ler.nextLine());
             System.out.print("Email: ");
-            clientes[i].email = ler.nextLine();
+            usuario.email = ler.nextLine();
+
+            clientes.add(usuario);
+
         }
 
-        clientes[0].MostraDados(1);
+        int x = 1;
 
+        System.out.println("\n\n<<<-- CLIENTES CADASTRADOS -->>>\n");
+        for(Cliente pessoas : clientes) {
+            System.out.println("\nCliente " + (x++));
+            pessoas.MostraDados();
+        }
 
         ler.close();
     }
