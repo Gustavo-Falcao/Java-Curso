@@ -31,6 +31,10 @@ public class Main {
             func.mostrarInfo();
         }
 
+        funcionarios[0].setSalary(45000);
+
+        funcionarios[0].mostrarInfo();
+
         ler.close();
     }
 }
