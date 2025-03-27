@@ -1,8 +1,8 @@
 package Tipos_de_listas.HashMap;
 
-import java.security.Key;
-import java.util.HashMap;
 
+import java.util.HashMap;
+import java.util.Scanner;
 
 // Criar classe cliente com atributos nome, idade e email e defindo ela como private;
 // Criar construtor para cliente
@@ -16,11 +16,20 @@ import java.util.HashMap;
 
 public class Main {
 
+    private static final Scanner ler = new Scanner(System.in);
+
     public static void main(String[] args) {
         HashMap<String,Cliente> clientes = new HashMap<String,Cliente>();
         Cliente cliente01 = new Cliente("Gustavo", 20, "duartegusfalcao@gmail.com");
         Cliente cliente02 = new Cliente("Pedro", 15, "pedro@gmail.com");
         Cliente cliente03 = new Cliente("Rafael", 30, "rafael@gmail.com");
+
+        System.out.print("Digite o nome: ");
+        String nome = ler.nextLine();
+        System.out.print("Digite a idade: ");
+        int idade = Integer.parseInt(ler.nextLine());
+        System.out.print("Digite o email: ");
+        String email = ler.nextLine();
 
         clientes.put("K1", cliente01);
         clientes.put("k2", cliente02);
