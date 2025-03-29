@@ -1,4 +1,4 @@
-package Tipos_de_listas.HashMap;
+package Arrays_Dinamicos.HashMap;
 
 public class Cliente {
     private String nome;
