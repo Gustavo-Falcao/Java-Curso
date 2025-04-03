@@ -20,8 +20,8 @@ public class Main {
 
         Collections.sort(numeros, Collections.reverseOrder());
 
-        System.out.println("Primeiro valor: " + numeros.getFirst());
-        System.out.println("Ultimo valor: " + numeros.getLast());
+        //System.out.println("Primeiro valor: " + numeros.getFirst());
+        //System.out.println("Ultimo valor: " + numeros.getLast());
 
         for(int numero : numeros) {
             System.out.println("numero = " + numero);
