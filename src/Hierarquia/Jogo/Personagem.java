@@ -1,6 +1,5 @@
 package Hierarquia.Jogo;
 
-import javax.swing.text.Style;
 
 public class Personagem {
 
@@ -18,20 +17,33 @@ public class Personagem {
     }
 
     public void atacar() {
-        if(this.nome.equals("guerreiro")) {
-            Guerreiro.guerreiroAtacar();
-        }
-        else if(this.nome.equals("mago")) {
-            Mago.magoAtacar();
-        }
-        else if(this.nome.equals("arqueiro")) {
-            Arqueiro.arqueiroAtacar();
-        }
         System.out.println("Atacando....");
+    }
+
+    public void sofrerDano(int dano) {
+        if(this.vida > 0 && dano > this.vida) {
+            this.vida = 0;
+        }
+        else if(this.vida > 0) {
+            this.vida -= dano;
+        } else {
+            System.out.println("O " + this.nome + " já está morto!!");
+        }
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public int getDano(){
+        return dano;
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Nome: " + getNome());
+        System.out.println("Tipo de arma: " + tipoArma);
+        System.out.println("Vida: " + vida);
+        System.out.println("Dano: " + getDano());
     }
 
 }
