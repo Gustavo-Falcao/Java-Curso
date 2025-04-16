@@ -5,8 +5,8 @@ public class Personagem {
 
     private String nome;
     String tipoArma;
-    int vida;
-    int dano;
+    private int vida;
+    private int dano;
 
 
     Personagem(String nome, String tipoArma, int vida, int dano) {
@@ -42,8 +42,12 @@ public class Personagem {
     public void mostrarInfo() {
         System.out.println("Nome: " + getNome());
         System.out.println("Tipo de arma: " + tipoArma);
-        System.out.println("Vida: " + vida);
+        System.out.println("Vida: " + getVida());
         System.out.println("Dano: " + getDano());
+    }
+
+    public int getVida() {
+        return vida;
     }
 
 }
