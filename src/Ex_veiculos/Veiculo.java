@@ -37,8 +37,16 @@ public class Veiculo {
         this.ligado = false;
     }
 
-    public void acelerar(String frase) {
-        System.out.println(frase);
+    public void acelerar() {
+        System.out.println("Veiculo Acelerando");
+    }
+
+    public void frear() {
+        System.out.println("Veiculo Freando!!");
+    }
+
+    public void virar() {
+
     }
 
 }

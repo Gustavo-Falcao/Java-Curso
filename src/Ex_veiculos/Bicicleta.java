@@ -12,4 +12,14 @@ public class Bicicleta extends Veiculo{
         this.tipoFreio = tipoFreio;
         this.estiloQuadro = estiloQuadro;
     }
+
+    @Override
+    public void acelerar() {
+        System.out.println("BIKE acelerando!!");
+    }
+
+    @Override
+    public void frear() {
+        System.out.println("BIKE freando!!");
+    }
 }

@@ -30,4 +30,14 @@ public class Onibus extends Veiculo{
             System.out.println("O onibus já está desligado");
         }
     }
+
+    @Override
+    public void acelerar() {
+        System.out.println("Onibus acelerando!!");
+    }
+
+    @Override
+    public void frear() {
+        System.out.println("Onibus freando!!");
+    }
 }
