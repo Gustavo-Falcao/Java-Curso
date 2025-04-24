@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    static ArrayList<Personagem> personagens = new ArrayList<>();
-
     static Scanner ler = new Scanner(System.in);
 
     public static int pegarPlayerAtaque() {
@@ -30,14 +28,6 @@ public class Main {
         System.out.println("-------------------------");
     }
 
-    public static int pegarPosicaoPersonagem(String nomePersonagem) {
-        for(Personagem per : personagens) {
-            if(per.getNome().equalsIgnoreCase(nomePersonagem)) {
-                return personagens.indexOf(per);
-            }
-        }
-        return -1;
-    }
 
     public static void mostrarPersonagemMorto(String nome) {
         System.out.println("ERRO => [O " + nome + " está morto e não pode ser selecionado!!]");
@@ -45,39 +35,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        personagens.add(new Guerreiro("Guerreiro", "🪓", 1000, 250));
-        personagens.add(new Arqueiro("Arqueiro", "🎯", 1000, 500));
-        personagens.add(new Mago("Mago", "🤖", 1000, 200));
+        Personagem pGuerreiro = new Guerreiro("Guerreiro", "🪓", 1000, 250);
+        Personagem pArqueiro = new Arqueiro("Arqueiro", "🎯", 1000, 500);
+        Personagem pMago = new Mago("Mago", "🤖", 1000, 200);
 
         int opcao;
         do {
             System.out.println("\n");
-            for(Personagem per : personagens) {
-                per.mostrarInfo();
-                System.out.println();
-            }
+            pGuerreiro.mostrarInfo();
+            pArqueiro.mostrarInfo();
+            pMago.mostrarInfo();
             mostrarOpcoes();
             opcao = pegarPlayerAtaque();
             int op;
             switch (opcao) {
                 case 1:
-                    if(personagens.get(pegarPosicaoPersonagem("Arqueiro")).getVida() == 0) {
-                        mostrarPersonagemMorto("Arqueiro");
+                    if(pArqueiro.getVida() == 0) {
+                        mostrarPersonagemMorto(pArqueiro.getNome());
                     } else {
                         System.out.println("\n\n << -- Arqueiro -- >> ");
                         System.out.println(" [1] Guerreiro");
                         System.out.println(" [2] Mago");
                         op = pegarPlayerVitima();
                         if(op == 1) {
-                            if(pegarPosicaoPersonagem("Guerreiro") != -1) {
-                                personagens.get(pegarPosicaoPersonagem("Guerreiro")).sofrerDano(personagens.get(pegarPosicaoPersonagem("Arqueiro")).getDano());
-                            }
+                            pGuerreiro.sofrerDano(pArqueiro.getDano());
                         }
                         else if(op == 2) {
-                            if(pegarPosicaoPersonagem("Mago") != -1) {
-                                personagens.get(pegarPosicaoPersonagem("Mago")).sofrerDano(personagens.get(pegarPosicaoPersonagem("Arqueiro")).getDano());
-                            }
+                            pMago.sofrerDano(pArqueiro.getDano());
                         }
                         else {
                             System.out.println("Opção inválida");
@@ -85,22 +69,18 @@ public class Main {
                     }
                 break;
                 case 2:
-                    if(personagens.get(pegarPosicaoPersonagem("Guerreiro")).getVida() == 0) {
-                        mostrarPersonagemMorto("Guerreiro");
+                    if(pGuerreiro.getVida() == 0) {
+                        mostrarPersonagemMorto(pGuerreiro.getNome());
                     } else {
                         System.out.println("\n\n << -- Guerreiro -- >>");
                         System.out.println(" [1] Arqueiro");
                         System.out.println(" [2] Mago");
                         op = pegarPlayerVitima();
                         if(op == 1) {
-                            if(pegarPosicaoPersonagem("Arqueiro") != -1) {
-                                personagens.get(pegarPosicaoPersonagem("Arqueiro")).sofrerDano(personagens.get(pegarPosicaoPersonagem("Guerreiro")).getDano());
-                            }
+                            pArqueiro.sofrerDano(pGuerreiro.getDano());
                         }
                         else if(op == 2) {
-                            if(pegarPosicaoPersonagem("Mago") != -1) {
-                                personagens.get(pegarPosicaoPersonagem("Mago")).sofrerDano(personagens.get(pegarPosicaoPersonagem("Guerreiro")).getDano());
-                            }
+                            pMago.sofrerDano(pGuerreiro.getDano());
                         }
                         else {
                             System.out.println("Opção inválida");
@@ -108,22 +88,18 @@ public class Main {
                     }
                 break;
                 case 3:
-                    if(personagens.get(pegarPosicaoPersonagem("Mago")).getVida() == 0) {
-                        mostrarPersonagemMorto("Mago");
+                    if(pMago.getVida() == 0) {
+                        mostrarPersonagemMorto(pMago.getNome());
                     } else {
                         System.out.println("\n\n << -- Mago -- >>");
                         System.out.println(" [1] Arqueiro");
                         System.out.println(" [2] Guerreiro");
                         op = pegarPlayerVitima();
                         if(op == 1) {
-                            if(pegarPosicaoPersonagem("Arqueiro") != -1) {
-                                personagens.get(pegarPosicaoPersonagem("Arqueiro")).sofrerDano(personagens.get(pegarPosicaoPersonagem("Mago")).getDano());
-                            }
+                            pArqueiro.sofrerDano(pMago.getDano());
                         }
                         else if(op == 2) {
-                            if(pegarPosicaoPersonagem("Guerreiro") != -1) {
-                                personagens.get(pegarPosicaoPersonagem("Guerreiro")).sofrerDano(personagens.get(pegarPosicaoPersonagem("Mago")).getDano());
-                            }
+                            pGuerreiro.sofrerDano(pMago.getDano());
                         }
                         else {
                             System.out.println("Opção inválida");

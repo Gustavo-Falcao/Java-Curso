@@ -44,6 +44,7 @@ public class Personagem {
         System.out.println("Tipo de arma: " + tipoArma);
         System.out.println("Vida: " + getVida());
         System.out.println("Dano: " + getDano());
+        System.out.println();
     }
 
     public int getVida() {
