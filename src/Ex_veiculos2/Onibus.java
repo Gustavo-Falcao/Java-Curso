@@ -1,13 +1,15 @@
-package Ex_veiculos;
+package Ex_veiculos2;
 
-public class Onibus extends Veiculo{
+import Ex_veiculos.Veiculo;
+
+public class Onibus extends VeiculoTerrestre {
 
     int capacidadePassageiros;
     int portasAcesso;
     int numeroParadas;
 
-    Onibus(String modelo, int ano, String cor, boolean ligado, int capacidadePassageiros, int portasAcesso, int numeroParadas) {
-        super(modelo, ano, cor, ligado);
+    Onibus(int ano, String cor, boolean ligado, String modelo, int numeroRodas, int capacidadePassageiros, int portasAcesso, int numeroParadas) {
+        super(ano, cor, ligado, modelo ,numeroRodas);
         this.capacidadePassageiros = capacidadePassageiros;
         this.portasAcesso = portasAcesso;
         this.numeroParadas = numeroParadas;
@@ -29,21 +31,6 @@ public class Onibus extends Veiculo{
         } else {
             System.out.println("O onibus já está desligado");
         }
-    }
-
-    @Override
-    public void acelerar() {
-        System.out.println("Onibus acelerando!!");
-    }
-
-    @Override
-    public void frear() {
-        System.out.println("Onibus freando!!");
-    }
-
-    @Override
-    public void virar(String direcao) {
-        System.out.println("O onibus virou para " + direcao);
     }
 
     public int getCapacidadePassageiros() {

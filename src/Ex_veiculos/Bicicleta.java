@@ -22,4 +22,41 @@ public class Bicicleta extends Veiculo{
     public void frear() {
         System.out.println("BIKE freando!!");
     }
+
+    @Override
+    public void virar(String direcao) {
+        System.out.println("A bicicleta virou para " + direcao);
+    }
+
+    public int getNumeroMarchas() {
+        return numeroMarchas;
+    }
+
+    public void setNumeroMarchas(int numeroMarchas) {
+        this.numeroMarchas = numeroMarchas;
+    }
+
+    public String getTipoFreio() {
+        return tipoFreio;
+    }
+
+    public void setTipoFreio(String tipoFreio) {
+        this.tipoFreio = tipoFreio;
+    }
+
+    public String getEstiloQuadro() {
+        return estiloQuadro;
+    }
+
+    public void setEstiloQuadro(String estiloQuadro) {
+        this.estiloQuadro = estiloQuadro;
+    }
+
+    public void pedalar() {
+        System.out.println("Pedalando");
+    }
+
+    public void parar() {
+        System.out.println("Bike parando");
+    }
 }

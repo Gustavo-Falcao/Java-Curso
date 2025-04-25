@@ -1,13 +1,13 @@
-package Ex_veiculos;
+package Ex_veiculos2;
 
-public class Carro extends Veiculo{
+public class Carro extends VeiculoTerrestre {
 
     int numeroPortas;
     String tipoTransmissao;
     float capacidadePortamalas;
 
-    Carro(String modelo, int ano, String cor, boolean ligado, int numeroPortas, String tipoTransmissao, float capacidadePortamalas) {
-        super(modelo, ano, cor, ligado);
+    Carro(int ano, String cor, boolean ligado, String modelo, int numeroRodas, int numeroPortas, String tipoTransmissao, float capacidadePortamalas) {
+        super(ano, cor, ligado, modelo, numeroRodas);
         this.numeroPortas = numeroPortas;
         this.tipoTransmissao = tipoTransmissao;
         this.capacidadePortamalas = capacidadePortamalas;
@@ -44,6 +44,21 @@ public class Carro extends Veiculo{
     @Override
     public void virar(String direcao) {
         System.out.println("O carro virou para " + direcao);
+    }
+
+    public void mostrarInfoCarro() {
+        System.out.println("Ano: " + this.ano);
+        System.out.println("Cor: " + this.cor);
+        if(this.ligado) {
+            System.out.println("Carro está ligado");
+        }else {
+            System.out.println("Carro está desligado");
+        }
+        System.out.println("Modelo: " + this.modelo);
+        System.out.println("Numero de rodas: " + this.numeroRodas);
+        System.out.println("Numero de portas: " + this.numeroPortas);
+        System.out.println("Tipo de transmissão: " + this.tipoTransmissao);
+        System.out.println("Capacidade do portamalas: " + this.capacidadePortamalas);
     }
 
     public int getNumeroPortas() {

@@ -1,13 +1,15 @@
-package Ex_veiculos;
+package Ex_veiculos2;
 
-public class Moto extends Veiculo{
+import Ex_veiculos.Veiculo;
+
+public class Moto extends VeiculoTerrestre {
 
     int cilindradas;
     String tipoCombustivel;
     String tipoFreio;
 
-    Moto(String modelo, int ano, String cor, boolean ligado, int cilindradas, String tipoCombustivel, String tipoFreio) {
-        super(modelo, ano, cor, ligado);
+    Moto(int ano, String cor, boolean ligado, String modelo, int numeroRodas, int cilindradas, String tipoCombustivel, String tipoFreio) {
+        super(ano, cor, ligado, modelo, numeroRodas);
         this.cilindradas = cilindradas;
         this.tipoCombustivel = tipoCombustivel;
         this.tipoFreio = tipoFreio;

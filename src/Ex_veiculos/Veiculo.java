@@ -45,8 +45,8 @@ public class Veiculo {
         System.out.println("Veiculo Freando!!");
     }
 
-    public void virar() {
-
+    public void virar(String direcao) {
+        System.out.println("O veículo virou para " + direcao);
     }
 
 }
