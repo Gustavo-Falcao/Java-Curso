@@ -18,16 +18,18 @@ public class Onibus extends VeiculoTerrestre {
     @Override
     public void ligar() {
         if(!this.ligado){
-            super.ligar();
+            ligado = true;
+            System.out.println("O onibus ligou");
         } else {
             System.out.println("O onibus já está ligado");
         }
     }
 
     @Override
-    public void desligar() {
+    void desligar() {
         if(this.ligado) {
-            super.desligar();
+            ligado = false;
+            System.out.println("O onibus desligou");
         } else {
             System.out.println("O onibus já está desligado");
         }

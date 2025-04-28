@@ -1,6 +1,6 @@
 package Ex_veiculos2;
 
-public class VeiculoAquatico extends Veiculo{
+public abstract class VeiculoAquatico extends Veiculo{
 
     private float comprimento;
 

@@ -2,9 +2,9 @@ package Ex_veiculos2;
 
 public class Carro extends VeiculoTerrestre {
 
-    int numeroPortas;
-    String tipoTransmissao;
-    float capacidadePortamalas;
+    private int numeroPortas;
+    private String tipoTransmissao;
+    private float capacidadePortamalas;
 
     Carro(int ano, String cor, boolean ligado, String modelo, int numeroRodas, int numeroPortas, String tipoTransmissao, float capacidadePortamalas) {
         super(ano, cor, ligado, modelo, numeroRodas);
@@ -14,18 +14,20 @@ public class Carro extends VeiculoTerrestre {
     }
 
     @Override
-    public void ligar() {
+    void ligar() {
         if(!this.ligado){
-            super.ligar();
+            ligado = true;
+            System.out.println("O carro ligou");
         } else {
             System.out.println("O carro já está ligado");
         }
     }
 
     @Override
-    public void desligar() {
+    void desligar() {
         if(this.ligado) {
-            super.desligar();
+            ligado = false;
+            System.out.println("O carro desligou");
         } else {
             System.out.println("O carro já está desligado");
         }

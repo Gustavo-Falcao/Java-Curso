@@ -16,18 +16,20 @@ public class Moto extends VeiculoTerrestre {
     }
 
     @Override
-    public void ligar() {
+    void ligar() {
         if(!this.ligado){
-            super.ligar();
+           ligado = true;
+            System.out.println("A moto ligou");
         } else {
             System.out.println("A moto já está ligada");
         }
     }
 
     @Override
-    public void desligar() {
+    void desligar() {
         if(this.ligado) {
-            super.desligar();
+            ligado = false;
+            System.out.println("A moto desligou");
         } else {
             System.out.println("A moto já está desligada");
         }

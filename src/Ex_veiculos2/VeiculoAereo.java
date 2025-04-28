@@ -1,6 +1,6 @@
 package Ex_veiculos2;
 
-public class VeiculoAereo extends Veiculo{
+public abstract class VeiculoAereo extends Veiculo{
 
     private int numeroMotores;
 

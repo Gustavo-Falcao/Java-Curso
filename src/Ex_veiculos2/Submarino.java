@@ -9,6 +9,26 @@ public class Submarino extends VeiculoAquatico{
         this.profundidadeMaxima = profundidadeMaxima;
     }
 
+    @Override
+    void ligar() {
+        if(!this.ligado){
+            ligado = true;
+            System.out.println("Submarino ligado");
+        } else {
+            System.out.println("Submarino já está desligado");
+        }
+    }
+
+    @Override
+    void desligar(){
+        if(this.ligado) {
+            ligado = false;
+            System.out.println("Submarino desligado");
+        } else {
+            System.out.println("O submarino já está desligado");
+        }
+    }
+
     public void mergulhar() {
         System.out.println("Submarino mergulhando");
     }
