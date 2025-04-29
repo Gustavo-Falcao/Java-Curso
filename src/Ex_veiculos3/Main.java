@@ -76,11 +76,10 @@ public class Main {
                             novoVeiculo = pegarVeiculo("terrestre");
                             if(novoVeiculo != null) {
                                 veiculos.add(novoVeiculo);
-                                System.out.println("Veiculo Terrestre cadastrado com sucesso!!");
+                                System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastra o veiculo Terrestre!!");
                             }
-
                             break;
                         case 2:
                             System.out.println("-----------------------------");
@@ -89,7 +88,7 @@ public class Main {
                             novoVeiculo = pegarVeiculo("aereo");
                             if(novoVeiculo != null) {
                                 veiculos.add(novoVeiculo);
-                                System.out.println("Veiculo Aereo cadastrado com sucesso!!");
+                                System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aereo!!");
                             }
@@ -101,7 +100,7 @@ public class Main {
                             novoVeiculo = pegarVeiculo("aquatico");
                             if(novoVeiculo != null) {
                                 veiculos.add(novoVeiculo);
-                                System.out.println("Veiculo Aquatico cadastrado com sucesso!!");
+                                System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aquatico!!");
                             }
