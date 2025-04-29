@@ -7,7 +7,7 @@ public abstract class Veiculo {
     protected boolean ligado;
     protected String modelo;
 
-    protected Veiculo(int ano, String cor, boolean ligado, String modelo) {
+    Veiculo(int ano, String cor, boolean ligado, String modelo) {
         this.ano = ano;
         this.cor = cor;
         this.ligado = ligado;
