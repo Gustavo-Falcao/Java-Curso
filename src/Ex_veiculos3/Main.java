@@ -77,7 +77,7 @@ public class Main {
                             System.out.println("---------------------------------");
                             novoVeiculo = pegarVeiculo("terrestre");
                             if(novoVeiculo != null) {
-                                veiculos.put("V" + (numId++) + " ",novoVeiculo);
+                                veiculos.put("K" + (numId++) + " ",novoVeiculo);
                                 System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastra o veiculo Terrestre!!");
@@ -89,7 +89,7 @@ public class Main {
                             System.out.println("-----------------------------");
                             novoVeiculo = pegarVeiculo("aereo");
                             if(novoVeiculo != null) {
-                                veiculos.put("V" + (numId++) + " ",novoVeiculo);
+                                veiculos.put("K" + (numId++) + " ",novoVeiculo);
                                 System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aereo!!");
@@ -101,7 +101,7 @@ public class Main {
                             System.out.println("--------------------------------");
                             novoVeiculo = pegarVeiculo("aquatico");
                             if(novoVeiculo != null) {
-                                veiculos.put("V" + (numId++) + " ",novoVeiculo);
+                                veiculos.put("K" + (numId++) + " ",novoVeiculo);
                                 System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aquatico!!");
@@ -114,6 +114,7 @@ public class Main {
                     System.out.println("|  <<-- Todos os veiculos -->>  |");
                     System.out.println("---------------------------------");
                     for(String chave : veiculos.keySet()) {
+                        System.out.println("| --> ID Veiculo: " + chave);
                         System.out.println("| --> Nome: " + veiculos.get(chave).getNomeVeiculo());
                         System.out.println("| --> Cor: " + veiculos.get(chave).getCor());
                         System.out.println("| --> Modelo: " + veiculos.get(chave).getModelo());
@@ -132,34 +133,41 @@ public class Main {
                     System.out.println("-----------------------------");
                     System.out.print("#-> Escolha o tipo do veiculo: ");
                     int tipoVeiculo = Integer.parseInt(ler.nextLine());
+                    String nomeTipoVeiculo = "";
 
                     switch (tipoVeiculo) {
                         case 1:
                             System.out.println("-----------------------------------");
                             System.out.println("|  <<-- Veiculos Terrestres -->>  |");
                             System.out.println("-----------------------------------");
-                            int i1 = 0;
                             for(String chave : veiculos.keySet()) {
                                 if(veiculos.get(chave) instanceof VeiculoTerrestre veiculoTerrestre) {
-                                    System.out.println("|  #- [" + (i1+=1) + "] " + veiculoTerrestre.getNomeVeiculo() + " --> " + veiculoTerrestre.getModelo());
+                                    System.out.println("|  #- [" + chave + "] " + veiculoTerrestre.getNomeVeiculo() + " --> " + veiculoTerrestre.getModelo());
                                 }
                             }
+                            nomeTipoVeiculo = "Terrestre";
                         break;
                         case 2:
-                            int i2 = 0;
+                            System.out.println("-------------------------------");
+                            System.out.println("|  <<-- Veiculos Aereos -->>  |");
+                            System.out.println("-------------------------------");
                             for(String chave : veiculos.keySet()) {
                                 if(veiculos.get(chave) instanceof VeiculoAereo veiculoAereo) {
-                                    System.out.println("|  #- [" + (i2+=1) + "] " + veiculoAereo.getNomeVeiculo() + " --> " + veiculoAereo.getModelo());
+                                    System.out.println("|  #- [" + chave + "] " + veiculoAereo.getNomeVeiculo() + " --> " + veiculoAereo.getModelo());
                                 }
                             }
+                            nomeTipoVeiculo = "Aereo";
                         break;
                         case 3:
-                            int i3 = 0;
+                            System.out.println("----------------------------------");
+                            System.out.println("|  <<-- Veiculos Aquaticos -->>  |");
+                            System.out.println("----------------------------------");
                             for(String chave : veiculos.keySet()) {
                                 if(veiculos.get(chave) instanceof VeiculoAquatico veiculoAquatico) {
-                                    System.out.println("|  #- [" + (i3+=1) + "] " + veiculoAquatico.getNomeVeiculo() + " --> " + veiculoAquatico.getModelo());
+                                    System.out.println("|  #- [" + chave + "] " + veiculoAquatico.getNomeVeiculo() + " --> " + veiculoAquatico.getModelo());
                                 }
                             }
+                            nomeTipoVeiculo = "Aquatico";
                         break;
                         default:
                             System.out.println("Erro -> Escolha uma opção válida!!");
@@ -167,8 +175,31 @@ public class Main {
                     }
 
                     System.out.println("-----------------------------------");
-                    System.out.print(" #-> Escolha um veiculo: ");
-                    int veiculoEscolhido = Integer.parseInt(ler.nextLine());
+                    System.out.print(" #-> Escolha um veiculo digitando o ID ao lado dele: ");
+                    String idVeiculoEscolhido = ler.nextLine();
+
+                    if(veiculos.containsKey(idVeiculoEscolhido)) {
+                        switch (nomeTipoVeiculo) {
+                            case "Terrestre":
+                                VeiculoTerrestre vTerrestre = (VeiculoTerrestre) veiculos.get(idVeiculoEscolhido);
+                                System.out.println("-------------------------------------------");
+                                System.out.println("|  <<-- Ações do Veiculo Terrestre  -->>  |");
+                                System.out.println("-------------------------------------------");
+                                System.out.println("|           #- [1] Ligar Farol            |");
+                                System.out.println("|           #- [0] Sair                   |");
+                                System.out.println("-------------------------------------------");
+                                System.out.print("#-> Escolha uma opção: ");
+                                int opAcao = Integer.parseInt(ler.nextLine());
+
+                                if(opAcao == 1) {
+                                    vTerrestre.ligarFarol("Carro");
+                                }
+                                else if(opAcao == 0 ) {
+                                    System.out.println("Saindo...");
+                                }
+                            break;
+                        }
+                    }
                 break;
                 case 0:
                     System.out.println("Saindo...");
