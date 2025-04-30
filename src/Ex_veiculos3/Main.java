@@ -44,7 +44,7 @@ public class Main {
         int opcao;
 
         do {
-            System.out.println("----------------------------------------------------------");
+            System.out.println("\n\n----------------------------------------------------------");
             System.out.println("| << -- Gerenciador Interativo de Frota Multimodal -- >> |");
             System.out.println("----------------------------------------------------------");
             System.out.println("|            #- [1] Cadastrar novo veiculo               |");
@@ -58,7 +58,7 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("-----------------------------------");
+                    System.out.println("\n\n-----------------------------------");
                     System.out.println("|  << -- Cadastrar veiculo -- >>  |");
                     System.out.println("-----------------------------------");
                     System.out.println("|        #- [1] Terrestre         |");
@@ -80,7 +80,7 @@ public class Main {
                             } else {
                                 System.out.println("Erro ao tentar cadastra o veiculo Terrestre!!");
                             }
-                            break;
+                        break;
                         case 2:
                             System.out.println("-----------------------------");
                             System.out.println("|  <<-- Veiculo Aereo -->>  |");
@@ -92,7 +92,7 @@ public class Main {
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aereo!!");
                             }
-                            break;
+                        break;
                         case 3:
                             System.out.println("--------------------------------");
                             System.out.println("|  <<-- Veiculo Aquatico -->>  |");
@@ -104,28 +104,73 @@ public class Main {
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aquatico!!");
                             }
-                            break;
+                        break;
                     }
-                    break;
+                break;
                 case 2:
                     System.out.println("---------------------------------");
                     System.out.println("|  <<-- Todos os veiculos -->>  |");
                     System.out.println("---------------------------------");
                     for(Veiculo veiculo : veiculos) {
-                        veiculo.ligar(veiculo.getNomeVeiculo());
-                        System.out.println("Nome: " + veiculo.getNomeVeiculo());
-                        System.out.println("Cor: " + veiculo.getCor());
-                        System.out.println("Modelo: " + veiculo.getModelo());
-                        System.out.println("Ano: " + veiculo.getAno());
-                        if(veiculo instanceof VeiculoTerrestre terrestre) {
-                            terrestre.ligarFarol(terrestre.getNomeVeiculo());
-                        }
-                        veiculo.desligar(veiculo.getNomeVeiculo());
+                        System.out.println("| --> Nome: " + veiculo.getNomeVeiculo());
+                        System.out.println("| --> Cor: " + veiculo.getCor());
+                        System.out.println("| --> Modelo: " + veiculo.getModelo());
+                        System.out.println("| --> Ano: " + veiculo.getAno());
+                        System.out.println("|");
                     }
-                    break;
+                    System.out.println("---------------------------------");
+                break;
+                case 3:
+                    System.out.println("-----------------------------");
+                    System.out.println("|  <<-- Realizar Ação -->>  |");
+                    System.out.println("-----------------------------");
+                    System.out.println("|      #- [1] Terrestre     |");
+                    System.out.println("|      #- [2] Aereo         |");
+                    System.out.println("|      #- [3] Aquatico      |");
+                    System.out.println("-----------------------------");
+                    System.out.print("#-> Escolha o tipo do veiculo: ");
+                    int tipoVeiculo = Integer.parseInt(ler.nextLine());
+
+                    switch (tipoVeiculo) {
+                        case 1:
+                            System.out.println("-----------------------------------");
+                            System.out.println("|  <<-- Veiculos Terrestres -->>  |");
+                            System.out.println("-----------------------------------");
+                            int i1 = 0;
+                            for(Veiculo veiculo : veiculos) {
+                                if(veiculo instanceof VeiculoTerrestre) {
+                                    System.out.println("|  #- [" + (i1+=1) + "] " + veiculo.getNomeVeiculo() + " --> " + veiculo.getModelo());
+                                }
+                            }
+                        break;
+                        case 2:
+                            int i2 = 0;
+                            for(Veiculo veiculo : veiculos) {
+                                if(veiculo instanceof VeiculoAereo) {
+                                    System.out.println("|  #- [" + (i2+=1) + "] " + veiculo.getNomeVeiculo() + " --> " + veiculo.getModelo());
+                                }
+                            }
+                        break;
+                        case 3:
+                            int i3 = 0;
+                            for(Veiculo veiculo : veiculos) {
+                                if(veiculo instanceof VeiculoAquatico) {
+                                    System.out.println("|  #- [" + (i3+=1) + "] " + veiculo.getNomeVeiculo() + " --> " + veiculo.getModelo());
+                                }
+                            }
+                        break;
+                        default:
+                            System.out.println("Erro -> Escolha uma opção válida!!");
+                        break;
+                    }
+
+                    System.out.println("-----------------------------------");
+                    System.out.print(" #-> Escolha um veiculo: ");
+                    int veiculoEscolhido = Integer.parseInt(ler.nextLine());
+                break;
                 case 0:
                     System.out.println("Saindo...");
-                    break;
+                break;
             }
         }while (opcao!=0);
     }
