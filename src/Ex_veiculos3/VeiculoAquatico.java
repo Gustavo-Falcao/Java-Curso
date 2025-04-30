@@ -29,4 +29,8 @@ public class VeiculoAquatico extends Veiculo{
             System.out.println(veiculo + " já está desligado");
         }
     }
+
+    void mergulhar(String veiculo) {
+        System.out.println(veiculo + " mergulhando");
+    }
 }

@@ -77,7 +77,7 @@ public class Main {
                             System.out.println("---------------------------------");
                             novoVeiculo = pegarVeiculo("terrestre");
                             if(novoVeiculo != null) {
-                                veiculos.put("K" + (numId++) + " ",novoVeiculo);
+                                veiculos.put("K" + (numId++),novoVeiculo);
                                 System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastra o veiculo Terrestre!!");
@@ -89,7 +89,7 @@ public class Main {
                             System.out.println("-----------------------------");
                             novoVeiculo = pegarVeiculo("aereo");
                             if(novoVeiculo != null) {
-                                veiculos.put("K" + (numId++) + " ",novoVeiculo);
+                                veiculos.put("K" + (numId++),novoVeiculo);
                                 System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aereo!!");
@@ -101,7 +101,7 @@ public class Main {
                             System.out.println("--------------------------------");
                             novoVeiculo = pegarVeiculo("aquatico");
                             if(novoVeiculo != null) {
-                                veiculos.put("K" + (numId++) + " ",novoVeiculo);
+                                veiculos.put("K" + (numId++),novoVeiculo);
                                 System.out.println(novoVeiculo.getNomeVeiculo() + " cadastrado com sucesso!!");
                             } else {
                                 System.out.println("Erro ao tentar cadastrar o veiculo Aquatico!!");
@@ -189,12 +189,48 @@ public class Main {
                                 System.out.println("|           #- [0] Sair                   |");
                                 System.out.println("-------------------------------------------");
                                 System.out.print("#-> Escolha uma opção: ");
-                                int opAcao = Integer.parseInt(ler.nextLine());
+                                int opAcaoTerrestre = Integer.parseInt(ler.nextLine());
 
-                                if(opAcao == 1) {
-                                    vTerrestre.ligarFarol("Carro");
+                                if(opAcaoTerrestre == 1) {
+                                    vTerrestre.ligarFarol(vTerrestre.getNomeVeiculo());
                                 }
-                                else if(opAcao == 0 ) {
+                                else if(opAcaoTerrestre == 0 ) {
+                                    System.out.println("Saindo...");
+                                }
+                            break;
+                            case "Aereo":
+                                VeiculoAereo vAereo = (VeiculoAereo) veiculos.get(idVeiculoEscolhido);
+                                System.out.println("--------------------------------------");
+                                System.out.println("|  <<-- Ações do Veiculo Aereo -->>  |");
+                                System.out.println("--------------------------------------");
+                                System.out.println("|          #- [1] Decolar            |");
+                                System.out.println("|          #- [0] Sair               |");
+                                System.out.println("--------------------------------------");
+                                System.out.print("#-> Escolha uma ação: ");
+                                int opAcaoAereo = Integer.parseInt(ler.nextLine());
+
+                                if(opAcaoAereo == 1) {
+                                    vAereo.decolar(vAereo.getNomeVeiculo());
+                                }
+                                else if(opAcaoAereo == 0) {
+                                    System.out.println("Saindo...");
+                                }
+                            break;
+                            case "Aquatico":
+                                VeiculoAquatico vAquatico = (VeiculoAquatico) veiculos.get(idVeiculoEscolhido);
+                                System.out.println("-----------------------------------------");
+                                System.out.println("|  <<-- Ações do Veiculo Aquatico -->>  |");
+                                System.out.println("-----------------------------------------");
+                                System.out.println("            #- [1] Mergulhar            |");
+                                System.out.println("            #- [0] Sair                 |");
+                                System.out.println("-----------------------------------------");
+                                System.out.print("#-> Escolha uma ação: ");
+                                int opAcaoAquatico = Integer.parseInt(ler.nextLine());
+
+                                if(opAcaoAquatico == 1) {
+                                    vAquatico.mergulhar(vAquatico.getNomeVeiculo());
+                                }
+                                else if(opAcaoAquatico == 0) {
                                     System.out.println("Saindo...");
                                 }
                             break;

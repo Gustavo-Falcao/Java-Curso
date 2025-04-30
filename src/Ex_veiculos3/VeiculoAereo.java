@@ -29,4 +29,8 @@ public class VeiculoAereo extends Veiculo {
             System.out.println(veiculo + " já está desligado");
         }
     }
+
+    void decolar(String veiculo) {
+        System.out.println(veiculo + " decolando");
+    }
 }
