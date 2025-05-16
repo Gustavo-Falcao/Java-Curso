@@ -1,6 +1,6 @@
 package Ex_instrumento;
 
-public class Violao extends Instrumento implements Afinador{
+public class Violao extends Instrumento implements Afinador, AfinadorAutomatico{
 
     private int numeroCordas;
 
@@ -21,6 +21,11 @@ public class Violao extends Instrumento implements Afinador{
     @Override
     public void afinar() {
         System.out.println("Afinando violão");
+    }
+
+    @Override
+    public void autoAfinar() {
+        System.out.println("Afinando violão automático");
     }
 
     @Override
